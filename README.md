@@ -10,6 +10,10 @@ YYYY-MM-DD-short-topic/
 └── ...         # the code
 ```
 
+## How this repo works
+
+Each entry lives in its own `YYYY-MM-DD-short-topic/` folder (see the convention above) and gets a row in the index table below. To add a new entry, copy `_template/README.md` into your new folder, fill it in, and add the code alongside it.
+
 ## Index
 
 | Date | Topic | Folder | LinkedIn post |

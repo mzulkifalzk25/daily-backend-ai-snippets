@@ -1,0 +1,22 @@
+name: Ruff
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for Python files
+        id: pyfiles
+        run: |
+          if git ls-files '*.py' | grep -q .; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: astral-sh/ruff-action@v3
+        if: steps.pyfiles.outputs.found == 'true'
